@@ -61,7 +61,7 @@ const Navbar = ({}) => {
             {wishListed.length>0 && <span className="wishlist_score">{wishListed.length}</span>}
             <p>Wishlist</p>
           </Link>
-          <Link to="/bag" className="profile_item">
+          <Link to="/cart" className="profile_item">
             <img src={Bag} alt="card" className="nav_bar_icons" />
             {bag.length>0 && <span className="bag_score">{bag.length}</span>}
             <p>Bag</p>

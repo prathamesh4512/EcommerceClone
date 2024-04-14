@@ -58,7 +58,7 @@ const ShirtDetails = ({}) => {
                 title: <Link to="/">Home</Link>,
               },
               {
-                title: <Link to="/">Clothing</Link>,
+                title: <Link to="/clothing">Clothing</Link>,
               },
               {
                 title: (
@@ -110,7 +110,7 @@ const ShirtDetails = ({}) => {
             />
             <div className="buttons">
               {addedToBag ? (
-                <Link to="/bag" className="bag bag2">
+                <Link to="/cart" className="bag bag2">
                   Go to Bag <ArrowRightOutlined />
                 </Link>
               ) : (
