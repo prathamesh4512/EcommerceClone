@@ -34,6 +34,9 @@ const Wrapper = styled.div`
   h1 {
     text-align: center;
     font-size: 32px;
+    @media screen and (max-width: 800px) {
+      font-size: 22px;
+    }
     text-transform: uppercase;
     color: #0db7af;
     font-weight: 700;
@@ -51,6 +54,9 @@ const Wrapper = styled.div`
     border-radius: 4px;
     position: absolute;
     top:35vw;
+    @media screen and (max-width: 800px) {
+      top:25vh;
+    }
     button{
       color:#fff;
     }

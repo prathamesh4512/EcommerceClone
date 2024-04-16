@@ -50,6 +50,10 @@ const Wrapper = styled.div`
     &:hover {
       border: 1px solid #ff3e6c;
     }
+    @media screen and (max-width: 1000px) {
+      padding: 6px 8px;
+          }
+
   }
   .outline {
     border: 1px solid #ff3e6c;

@@ -21,10 +21,9 @@ const CartPage = ({}) => {
       {bag.length > 0 ? (
         <Wrapper>
           <div className="bag-list">
+            <div className="top_section">
             <h1 className="pageTitle">Cart</h1>
-            <List products={bag} />
-          </div>
-          <div className="summary">
+            <div className="summary">
             <h1>
               Total Amount: <span>{totalAmount}</span>
             </h1>
@@ -34,9 +33,13 @@ const CartPage = ({}) => {
                 dispatch(clearBag());
               }}
             >
-              Buy
+              Checkout
             </button>
           </div>
+            </div>
+            <List products={bag} />
+          </div>
+          
         </Wrapper>
       ) : (
         <Empty name="Your Bag is Empty" />
@@ -47,27 +50,41 @@ const CartPage = ({}) => {
 export default CartPage;
 
 const Wrapper = styled.div`
-padding: 60px;
   text-align: left;
-  /* display: grid; */
-  display: flex;
-  gap:3vw;
-  justify-content: center;
-  min-height: 80vh;
+  width: fit-content;
+  margin: auto;
+margin-top: 20px;
+padding: 0 20px;
+
+  .top_section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    h1{
+      font-size:28px;
+      @media screen and (max-width: 800px) {
+      font-size: 22px;
+    }
+    }
+  }
   .pageTitle {
     text-align: center;
     text-transform: uppercase;
     color: #0db7af;
-    margin-bottom: 20px;
   }
 
-  padding-top: 1rem;
-  .bag-list {
-    grid-column: 2/3;
+  .brandName{
+    font-size: 18px;
   }
+  .productName{
+    font-size: 14px;
+  }
+  padding-top: 1rem;
+
   .summary {
     align-self: flex-start;
-    margin-top: 72px;
     h1 {
       span {
         font-weight: bolder;

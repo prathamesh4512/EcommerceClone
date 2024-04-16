@@ -1,5 +1,4 @@
 import { Button, Modal } from "antd";
-import SelectSize from "./SelectSize";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addInBag, removeInWishList } from "../store/bag/reducer";
@@ -57,9 +56,23 @@ const CustomModal = ({ isModalVisible, handleModalVisible, product }) => {
             <div className="row2">
               Seller: <span>Omnitech Retail</span>
             </div>
+
+            <div className="selectSize">
+      <p>Select Size</p>
+      {showSizeError && <span>Please select a size</span>}
+      <div className="sizes">
+        {[38, 40, 42, 44].map((size, index) => {
+          return (
+            <div key={index} className={size === selectedSize ? "circle outline" : "circle"} onClick={() => setSelectedSize(size)}>
+              {size}
+            </div>
+          );
+        })}
+      </div>
+    </div>
           </div>
         </div>
-        <SelectSize sizes={[38, 40, 42, 44]} selectedSize={(size) => setSelectedSize(size)} showSizeError={showSizeError} />
+        {/* <SelectSize sizes={[38, 40, 42, 44]} selectedSize={(size) => setSelectedSize(size)} showSizeError={showSizeError} /> */}
       </div>
     </Wrapper>
   );
@@ -74,34 +87,44 @@ const Wrapper = styled(Modal)`
   padding: 10px 16px;
   border-radius: 4px;
   width: 100%;
+  @media screen and (max-width: 500px) {
+    margin-top: 16px;
+  }
 }
 
 .customModal {
   img {
-    width: 6vw;
+    width: 200px;
+    @media screen and (max-width: 500px) {
+      display: block;
+    margin: auto;
+    height: 220px;
+    object-fit: contain;
+  }
   }
   .info {
     display: flex;
+    @media screen and (max-width: 500px) {
+    display: block;
+  }
     .contentPrice {
       padding-left: 16px;
       .row1 {
         padding-top: 0.5rem;
         display: flex;
         align-items: center;
+        font-size: 14px;
         .price {
-          font-size: 20px;
           font-weight: 700;
           line-height: 1;
           margin: 0;
         }
         .originalPrice {
-          font-size: 18px;
           padding-left: 8px;
           text-decoration: line-through;
           color: #535665;
         }
         .discount {
-          font-size: 18px;
           padding-left: 8px;
 
           color: #ff905a;
@@ -116,5 +139,43 @@ const Wrapper = styled(Modal)`
     }
   }
 }
+
+.selectSize{
+  margin-top: 10px;
+}
+
+
+  .sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap:12px;
+    margin-top: 6px;
+  }
+  p {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: black;
+  }
+  .circle {
+    padding: 6px 8px;
+    margin-right: 1rem;
+    border: 1px solid #bfc0c6;
+    border-radius: 50px;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid #ff3e6c;
+    }
+    @media screen and (max-width: 1000px) {
+      padding: 6px 8px;
+          }
+
+  }
+  .outline {
+    border: 1px solid #ff3e6c;
+    color: #ff3e6c;
+  }
+  span {
+    color: #ff3e6c;
+  }
 
 `

@@ -72,16 +72,16 @@ const ShirtDetails = ({}) => {
           <div className="images">
             {product.images.map((image, index) => {
               return (
-                <div
-                  key={index}
-                  className="image"
-                  // onClick={() => {
-                  //   setIsOpen(true);
-                  //   setPhotoIndex(index);
-                  // }}
-                >
-                  <img src={image} className="imageTag" alt="" />
-                </div>
+                // <div
+                //   key={index}
+                //   className="image"
+                //   // onClick={() => {
+                //   //   setIsOpen(true);
+                //   //   setPhotoIndex(index);
+                //   // }}
+                // >
+                  <img src={image} className="imageTag" alt="image" key={index} />
+                // </div>
               );
             })}
           </div>
@@ -175,7 +175,9 @@ const Wrapper = styled.div`
   overflow: hidden;
   box-sizing: border-box;
   padding: 32px 9% 32px 9%;
-
+  @media screen and (max-width: 800px) {
+            padding: 20px;
+          }
   .breadcrumb {
     font-size: 14px;
   }
@@ -190,21 +192,19 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 16px;
-    justify-content: space-between;
     transition: all 0.3 ease-in-out;
     position: relative;
-    .image {
-      overflow: hidden;
-      box-sizing: border-box;
+   
       .imageTag {
         transition: all 0.2s ease-in-out;
-        width: 24vw;
+        object-fit: cover;
+        width: 100%;
+        /* width: 24vw; */
         /* cursor: zoom-in; */
         &:hover {
           transform: scale(1.03);
         }
       }
-    }
   }
 
   h1 {
@@ -215,11 +215,18 @@ const Wrapper = styled.div`
   }
 
   .main {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: 800px) {
+            flex-direction: column;
+            gap:2rem;
+          }
     .content {
       padding-left: 32px;
-      width: 100%;
+      @media screen and (max-width: 800px) {
+            padding:0px;
+          }
+      /* width: 100%; */
       text-align: left;
       .name {
         h1 {
@@ -229,6 +236,9 @@ const Wrapper = styled.div`
           margin: 0;
           padding: 0;
           padding-top: 5px;
+          @media screen and (max-width: 980px) {
+            font-size: 20px;
+          }
         }
         h2 {
           color: #535665;
@@ -237,6 +247,9 @@ const Wrapper = styled.div`
           opacity: 0.8;
           font-weight: 400;
           margin: 0;
+          @media screen and (max-width: 980px) {
+            font-size: 18px;
+          }
         }
       }
 
@@ -317,7 +330,6 @@ const Wrapper = styled.div`
 
       .buttons {
         display: flex;
-        width: 90%;
         margin: 28px 0 14px 0;
         button,
         a {

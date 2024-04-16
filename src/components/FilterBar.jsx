@@ -91,6 +91,11 @@ text-align: left;
     width: 14rem;
   border: 1px solid #e9e9ed;
   border-left: none;
+  @media screen and (max-width: 850px) {
+    border: none;
+    width: auto;
+    margin-top: -20px;
+    }
   span {
     font-size: 12px;
   }
