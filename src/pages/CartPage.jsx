@@ -61,12 +61,18 @@ padding: 0 20px;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 30px;
+    @media screen and (max-width: 500px) {
+      margin-bottom: 20px;
+  }
     padding: 0 10px;
     h1{
       font-size:28px;
       @media screen and (max-width: 800px) {
       font-size: 22px;
     }
+    @media screen and (max-width: 500px) {
+      font-size: 18px;
+  }
     }
   }
   .pageTitle {
@@ -101,6 +107,10 @@ padding: 0 20px;
       margin-top: 8px;
       font-size: 16px;
       font-weight: bolder;
+      @media screen and (max-width: 500px) {
+        padding: 6px;
+        font-size: 14px;
+  }
       &:hover {
         opacity: 0.9;
       }

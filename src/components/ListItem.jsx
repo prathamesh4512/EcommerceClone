@@ -148,20 +148,32 @@ export default ListItem;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 32rem;
+  /* width: 32rem; */
   margin-bottom: 16px;
   border-radius: 4px;
   border: 1px solid #eaeaec;
   padding: 1rem;
   .main {
     display: flex;
+    @media screen and (max-width: 500px) {
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+  }
+  }
+  .image{
+    display: flex;
+    align-items: center;
   }
   img {
     width: 150px;
     margin-right: 1rem;
+    @media screen and (max-width: 500px) {
+    margin: auto;
+  }
   }
   .info {
-    width: 100%;
+    /* width: 100%; */
     .dropdowns {
       padding-top: 1rem;
       display: flex;
@@ -172,9 +184,17 @@ const Wrapper = styled.div`
     }
   }
   .brandName {
-    font-size: 14px;
     font-weight: 700;
     margin: 0;
+    @media screen and (max-width: 500px) {
+    font-size: 14px!important;
+  }
+  }
+
+  .productName{
+    @media screen and (max-width: 500px) {
+    font-size: 12px!important;
+  }
   }
 
   .soldBy {
@@ -185,10 +205,15 @@ const Wrapper = styled.div`
   .columns {
     display: flex;
     justify-content: space-between;
+    gap:20px;
   }
 
   .checks {
     margin-top: 28px;
+    @media screen and (max-width: 500px) {
+    margin-top:8px;
+    font-size: 14px;
+  }
     svg {
       path {
         fill: #0db7af;
@@ -219,13 +244,18 @@ const Wrapper = styled.div`
   }
 
   .buttons {
+    width: 90%;
     display: grid;
-    padding-top: 16px;
-    grid-template-columns: 10rem 20rem;
+    margin-top: 16px;
+    grid-template-columns: 1fr 1fr;
     align-self: center;
     button {
       text-transform: uppercase;
       padding: 16px;
+      @media screen and (max-width: 500px) {
+padding: 8px;
+font-size: 12px;
+  }
       border: 1px solid #eaeaec;
     }
   }
